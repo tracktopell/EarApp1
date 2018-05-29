@@ -10,3 +10,6 @@ buildNumber.properties
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
+/EarApp1-ejb/nb-configuration.xml
+/EarApp1-web/nb-configuration.xml
+/EarApp1-ear/nb-configuration.xml
