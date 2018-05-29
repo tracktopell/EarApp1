@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--application version="7" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd"-->
+<application version="5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd">
+
+  <display-name>EarApp1-ear</display-name>
+  <module>
+    <web>
+      <web-uri>/EarApp1-web-1.0.war</web-uri>
+      <context-root>EarApp1-web</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>/EarApp1-ejb-1.0.jar</ejb>
+  </module>
+</application>
