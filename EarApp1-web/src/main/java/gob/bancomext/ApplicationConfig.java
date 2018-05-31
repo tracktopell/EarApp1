@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author Alfredo Estrada
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("restapi")
 public class ApplicationConfig extends Application {
 
     @Override
@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(gob.bancomext.GenericResource.class);
+        resources.add(gob.bancomext.SecurityManagerController.class);
     }
     
 }

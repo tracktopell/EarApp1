@@ -1,10 +1,12 @@
 package gob.bancomext.security;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Alfredo Estrada
  */
-public class User {
+public class User implements Serializable{
     private String user;
     private String password;
     private String remoteHost;

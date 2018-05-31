@@ -9,13 +9,15 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
  * @author Alfredo Estrada
  */
 public class WebAppSecurityFilter implements Filter {
-
+    private static Log logger = LogFactory.getLog(WebAppSecurityFilter.class);
     private static final boolean debug = true;
 
     private FilterConfig filterConfig = null;
@@ -35,12 +37,18 @@ public class WebAppSecurityFilter implements Filter {
             String url = httpSR.getRequestURI();
             String queryString = httpSR.getQueryString();
             final HttpSession session = httpSR.getSession();
+            StringBuilder remoteInfo = new StringBuilder();
+//            remoteInfo.append("{\"RemoteAddr\":").append(httpSR.getRemoteAddr()).append("\",");
+//            remoteInfo.append("{\"RemoteHost\":").append(httpSR.getRemoteHost()).append("\",");
+//            remoteInfo.append("{\"RemoteHost\":").append(httpSR.getRemotePort()).append("\",");
+//            remoteInfo.append("{\"RemoteHost\":").append(httpSR.getRemotePort()).append("\",");
+            
             final Object user = session.getAttribute("user");
-            System.out.println("**["+((HttpServletRequest) request).getSession().getId()+"]**>>url="+url+", queryString="+queryString+", user="+user+", ContextPath="+httpSR.getContextPath()+"");
+            logger.info("["+((HttpServletRequest) request).getSession().getId()+"][*filter*] url="+url+", queryString="+queryString+", user="+user+", ContextPath="+httpSR.getContextPath()+"");
             if(user == null){
                 session.setAttribute("afterLoginFwd", url);
                 //request.getParameterMap().put("afterLoginFwd", new String[]{url});
-                System.out.println("**["+((HttpServletRequest) request).getSession().getId()+"]**>> login.jsp >> then forward >> "+url);
+                logger.info("["+((HttpServletRequest) request).getSession().getId()+"][*filter*] >> FFWD: login.jsp >> then forward >> "+url);
                 request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
                 return;
             }else{
@@ -52,7 +60,7 @@ public class WebAppSecurityFilter implements Filter {
 
     @Override
     public void destroy() {
-        System.out.println("<<++++++++++++++++++++++++++++++++++++++++");
+        logger.info("<<****");
     }
 
 

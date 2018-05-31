@@ -12,8 +12,14 @@
     <body>
         <h1>EarApp1-web</h1>
         <h2>
-            <a href="webresources/generic">webresources/generic</a>            
+            <a href="<%=request.getContextPath()%>/restapi/generic">restapi/generic</a>            
         </h2>
+        <h2>
+            <a href="<%=request.getContextPath()%>/restapi/smc/tokens">/restapi/smc/tokens</a>            
+        </h2>
+        
+        <h2><a href="<%=request.getContextPath()%>/portal/home.jsp">portal/home.jsp</a></h2>
+        
         <h2>SYSTEM PROPERTIES</h2>
         <ul>
 <%

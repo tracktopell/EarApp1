@@ -7,11 +7,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="gob.bancomext.security.SecurityManager"%>
 <%@page import="gob.bancomext.security.SecurityToken"%>
+<%@page import="org.apache.commons.logging.Log"%>
+<%@page import="org.apache.commons.logging.LogFactory"%>
 <!DOCTYPE html>
 <%            
+    Log logger = LogFactory.getLog(getClass().getName());
     SecurityToken securityToken=SecurityManager.getInstance().getSecurityToken();    
-    System.out.println("["+session.getId()+"][login.jsp] securityToken="+securityToken);    
+    logger.info("["+session.getId()+"][login.jsp] securityToken="+securityToken);    
     session.setAttribute("tokenId", securityToken);
+    String loginMsg=(String)session.getAttribute("loginMsg");
 %>
 
 <html>
@@ -21,6 +25,12 @@
     </head>
     <body>
         <h1>LOGIN</h1>
+<%
+    if(loginMsg != null){
+%>        
+        <h3><%=loginMsg%></h3>
+<%  }
+%>        
         <form action="<%=request.getContextPath()%>/__login" method="POST">
             <input type="text"     name="tokenId" value="<%=securityToken.getTokenId()%>"/>
             user:<input type="text"     name="<%=securityToken.getUserFieldId()%>"/>

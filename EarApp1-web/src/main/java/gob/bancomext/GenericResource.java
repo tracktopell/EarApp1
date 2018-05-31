@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
  * gob.bancomext.GenericResource
  * @author Alfredo Estrada
  */
-@Path("generic")
+@Path("/generic")
 @RequestScoped
 public class GenericResource {
 
@@ -32,10 +32,7 @@ public class GenericResource {
     public GenericResource() {
     }
 
-    /**
-     * Retrieves representation of an instance of gob.bancomext.GenericResource
-     * @return an instance of java.lang.String
-     */
+    @Path("/date")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getDate() {        

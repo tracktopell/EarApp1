@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -16,14 +18,14 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Logout", urlPatterns = {"/logout","/exit","/quit"})
 public class Logout extends HttpServlet {    
-
+    private static Log logger = LogFactory.getLog(Logout.class);
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         final HttpSession session = request.getSession();
         
-        System.out.println(":::::<< EXIT <<[]");        
+        logger.info(":::::<< EXIT <<[]");        
         session.setAttribute("user", null);        
             
         session.invalidate();

@@ -14,12 +14,12 @@
     <body>
         <h3>SECURE: SEC5</h3>
         <h1>[ 
-            <a href="<%=request.getContextPath()%>/secure/home.jsp">HOME</a> |
-            <a href="<%=request.getContextPath()%>/secure/sec1.jsp">SEC1</a> | 
-            <a href="<%=request.getContextPath()%>/secure/sec2.jsp">SEC2</a> | 
-            <a href="<%=request.getContextPath()%>/secure/sec3.jsp">SEC3</a> | 
-            <a href="<%=request.getContextPath()%>/secure/sec4.jsp">SEC4</a> | 
-            <a href="<%=request.getContextPath()%>/secure/sec5.jsp">SEC5</a>]</h1>
+            <a href="<%=request.getContextPath()%>/portal/home.jsp">HOME</a> |
+            <a href="<%=request.getContextPath()%>/portal/sec1.jsp">SEC1</a> | 
+            <a href="<%=request.getContextPath()%>/portal/sec2.jsp">SEC2</a> | 
+            <a href="<%=request.getContextPath()%>/portal/sec3.jsp">SEC3</a> | 
+            <a href="<%=request.getContextPath()%>/portal/sec4.jsp">SEC4</a> | 
+            <a href="<%=request.getContextPath()%>/portal/sec5.jsp">SEC5</a>]</h1>
         <h3>
             <a href="<%=request.getContextPath()%>/logout">EXIT</a>
         </h3>
