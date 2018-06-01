@@ -8,20 +8,15 @@ import java.io.Serializable;
  */
 public class User implements Serializable{
     private String user;
-    private String password;
     private String remoteHost;
+    private String email;
+    private String name;
+    private String userId;
     private long loggedInTime;
-
-    public User(String user, String password, String remoteHost, long loggedInTime) {
-        this.user = user;
-        this.password = password;
-        this.remoteHost = remoteHost;
-        this.loggedInTime = loggedInTime;
-    }
 
     public User() {
     }
-        
+    
     /**
      * @return the user
      */
@@ -34,20 +29,6 @@ public class User implements Serializable{
      */
     public void setUser(String user) {
         this.user = user;
-    }
-
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     /**
@@ -65,6 +46,48 @@ public class User implements Serializable{
     }
 
     /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the userId
+     */
+    public String getUserId() {
+        return userId;
+    }
+
+    /**
+     * @param userId the userId to set
+     */
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    /**
      * @return the loggedInTime
      */
     public long getLoggedInTime() {
@@ -78,4 +101,18 @@ public class User implements Serializable{
         this.loggedInTime = loggedInTime;
     }
 
+    @Override
+    public String toString() {    
+        return new StringBuilder("User{")
+                .append("user=").append(user).append(" ,")
+                .append("remoteHost=").append(remoteHost).append(" ,")
+                .append("email=").append(email).append(" ,")
+                .append("name=").append(name).append(" ,")
+                .append("userId=").append(userId).append(" ,")
+                .append("loggedInTime=").append(loggedInTime)
+            .append("}").
+            toString();
+    }
+
+    
 }

@@ -5,14 +5,24 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="gob.bancomext.security.User"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>HOME</title>
+<%
+    User user = (User)session.getAttribute("user");
+%>        
     </head>
     <body>
         <h3>SECURE: HOME</h3>
+<%
+    if(user != null){
+%>        
+        <h2>WELCOME:<%=user%></h2>
+<%}
+%>
         <h1>[ 
             <a href="<%=request.getContextPath()%>/portal/home.jsp">HOME</a> |
             <a href="<%=request.getContextPath()%>/portal/sec1.jsp">SEC1</a> | 
